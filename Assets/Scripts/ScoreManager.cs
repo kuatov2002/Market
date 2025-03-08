@@ -27,17 +27,9 @@ namespace Game.Scoring
                 }
             }
         }
-        
-        // Method to add points to the score
         public void AddPoint()
         {
             CurrentScore ++;
-        }
-        
-        // Method to reset the score
-        public void ResetScore()
-        {
-            CurrentScore = 0;
         }
     }
 }

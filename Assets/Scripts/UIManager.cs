@@ -1,3 +1,4 @@
+using Game.Player;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,13 +12,11 @@ namespace Game.UI
         [SerializeField] private Button throwButton;
         [SerializeField] private Text scoreText;
         
-        private PlayerController _playerController;
         private ScoreManager _scoreManager;
         
         [Inject]
-        public void Construct(PlayerController playerController, ScoreManager scoreManager)
+        public void Construct(ScoreManager scoreManager)
         {
-            _playerController = playerController;
             _scoreManager = scoreManager;
             
             // Subscribe to score changes
@@ -45,12 +44,6 @@ namespace Game.UI
             if (Input.touchCount > 0)
             {
                 Touch touch = Input.GetTouch(0);
-                bool touchingUI = IsPointerOverUIElement(touch.position);
-                
-                if (_playerController != null)
-                {
-                    _playerController.SetLookEnabled(!touchingUI);
-                }
             }
         }
         
@@ -70,20 +63,6 @@ namespace Game.UI
             {
                 _scoreManager.OnScoreChanged -= UpdateScoreDisplay;
             }
-        }
-        
-        private bool IsPointerOverUIElement(Vector2 position)
-        {
-            if (UnityEngine.EventSystems.EventSystem.current == null)
-                return false;
-                
-            UnityEngine.EventSystems.PointerEventData eventData = new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
-            eventData.position = position;
-            
-            System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult> results = new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();
-            UnityEngine.EventSystems.EventSystem.current.RaycastAll(eventData, results);
-            
-            return results.Count > 0;
         }
     }
 }
