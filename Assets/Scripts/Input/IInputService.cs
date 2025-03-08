@@ -12,7 +12,5 @@ namespace Game.Input
         Vector2 LookInput { get; }
         event Action<Vector2> OnTouchBegan;
         event Action OnThrowRequested;
-        public void RequestThrow();
-        bool IsTouchingRightSide { get; }
     }
 }

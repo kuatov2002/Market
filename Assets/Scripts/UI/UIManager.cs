@@ -17,13 +17,11 @@ namespace Game.UI
         [SerializeField] private Text _scoreText;
 
         private IScoreManager _scoreManager;
-        private IInteractionService _interactionService;
 
         [Inject]
-        public void Construct(IScoreManager scoreManager, IInteractionService interactionService)
+        public void Construct(IScoreManager scoreManager)
         {
             _scoreManager = scoreManager;
-            _interactionService = interactionService;
 
             // Subscribe to score changes
             _scoreManager.OnScoreChanged += UpdateScoreDisplay;

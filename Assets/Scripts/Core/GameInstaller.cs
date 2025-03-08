@@ -67,11 +67,6 @@ namespace Game.Core
                 .AsSingle();
 
             Container.BindInterfacesAndSelfTo<InteractionService>()
-                .FromNewComponentOnNewGameObject()
-                .AsSingle()
-                .NonLazy();
-
-            Container.Bind<ItemInteraction>()
                 .FromComponentInHierarchy()
                 .AsSingle();
         }

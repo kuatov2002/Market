@@ -12,7 +12,6 @@ namespace Game.Interaction
     public class InteractionService : MonoBehaviour, IInteractionService
     {
         private IInputService _inputService;
-        private IPlayerController _playerController;
         private InteractionSettings _settings;
         private Camera _playerCamera;
 
@@ -31,7 +30,6 @@ namespace Game.Interaction
             InteractionSettings settings)
         {
             _inputService = inputService;
-            _playerController = playerController;
             _settings = settings;
 
             // Subscribe to input events
@@ -119,9 +117,7 @@ namespace Game.Interaction
 
             // Apply force in camera forward direction
             _heldItemRb.AddForce(_playerCamera.transform.forward * _settings.ThrowForce, ForceMode.Impulse);
-
-            // Clear references
-            GameObject thrownItem = _heldItem;
+            
             _heldItem = null;
             _heldItemRb = null;
 
