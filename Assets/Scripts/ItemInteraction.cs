@@ -6,7 +6,6 @@ public class ItemInteraction : MonoBehaviour
     [Header("Interaction Settings")]
     [SerializeField] private float interactionDistance = 2f;
     [SerializeField] private LayerMask interactableLayers;
-    [SerializeField] private Transform itemHoldPosition;
     [SerializeField] private float throwForce = 10f;
     
     [Header("UI References")]
