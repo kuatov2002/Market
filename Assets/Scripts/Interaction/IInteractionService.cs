@@ -7,6 +7,7 @@ namespace Game.Interaction
     /// </summary>
     public interface IInteractionService
     {
+        public void ThrowItem();
         event Action OnItemPickedUp;
         event Action OnItemThrown;
         bool HasHeldItem { get; }

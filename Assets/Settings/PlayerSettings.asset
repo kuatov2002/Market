@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
   _moveSpeed: 5
-  _lookSensitivity: 0.5
+  _lookSensitivity: 10

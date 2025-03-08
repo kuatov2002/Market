@@ -313,9 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c38ab6b84599a41851a6ff3649db50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerControllerPrefab: {fileID: 1027452739}
-  uiManagerPrefab: {fileID: 870888871}
-  itemInteractionPrefab: {fileID: 1989320129}
+  _playerSettings: {fileID: 11400000, guid: 95be518933a8d0b4c8390706a970462d, type: 2}
+  _interactionSettings: {fileID: 11400000, guid: 6d9feb614fdc2304ab1c142cc96fb511, type: 2}
 --- !u!114 &554381782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +500,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &655416469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5253756184092257061, guid: b9ead31171e493249ba260080da754bd, type: 3}
+  m_PrefabInstance: {fileID: 2176218286340145443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &680405304
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,19 +567,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 680405306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1989320129}
-        m_TargetAssemblyTypeName: ItemInteraction, Assembly-CSharp
-        m_MethodName: ThrowItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &680405306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,8 +955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29699b7ee543ae74ca8e5e468ea6f369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwButton: {fileID: 680405305}
-  scoreText: {fileID: 1441989991}
+  _throwButton: {fileID: 680405305}
+  _scoreText: {fileID: 1441989991}
 --- !u!114 &870888872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1094,18 +1086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0f563f57906584fb44fdc6e7ac0ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceptableTag: Pickup
---- !u!114 &1027452739 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3578405879576755921, guid: b9ead31171e493249ba260080da754bd, type: 3}
-  m_PrefabInstance: {fileID: 2176218286340145443}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90cba2bc848d7da4d90dedc38c60846f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _acceptableTag: Pickup
 --- !u!1 &1212515698 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 119322, guid: 4d37e49a7ff11c64da046512cfdd7743, type: 3}
@@ -1867,56 +1848,6 @@ Terrain:
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
---- !u!1 &1989320128
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1989320130}
-  - component: {fileID: 1989320129}
-  m_Layer: 0
-  m_Name: ItemInteraction
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1989320129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989320128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de54fd89880e43742b09aa40f51593ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionDistance: 10
-  interactableLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  throwForce: 4
-  throwButton: {fileID: 680405305}
---- !u!4 &1989320130
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989320128}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2119481483 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 162826, guid: 4d37e49a7ff11c64da046512cfdd7743, type: 3}
@@ -1952,10 +1883,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1726326139069226927, guid: b9ead31171e493249ba260080da754bd, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3578405879576755921, guid: b9ead31171e493249ba260080da754bd, type: 3}
       propertyPath: moveJoystick
       value: 
       objectReference: {fileID: 845827351}
+    - target: {fileID: 3578405879576755921, guid: b9ead31171e493249ba260080da754bd, type: 3}
+      propertyPath: _cameraTransform
+      value: 
+      objectReference: {fileID: 655416469}
+    - target: {fileID: 3578405879576755921, guid: b9ead31171e493249ba260080da754bd, type: 3}
+      propertyPath: _groundLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6725531895252417456, guid: b9ead31171e493249ba260080da754bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2000,8 +1943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 1751787179734765430, guid: b9ead31171e493249ba260080da754bd, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 6761310034896128580, guid: b9ead31171e493249ba260080da754bd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9ead31171e493249ba260080da754bd, type: 3}
@@ -2013,5 +1958,4 @@ SceneRoots:
   - {fileID: 2176218286340145443}
   - {fileID: 870888875}
   - {fileID: 1219396395}
-  - {fileID: 1989320130}
   - {fileID: 1267307764}

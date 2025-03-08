@@ -17,16 +17,36 @@ namespace Game.UI
         [SerializeField] private Text _scoreText;
 
         private IScoreManager _scoreManager;
+        private IInteractionService _interactionService;
 
         [Inject]
-        public void Construct(IScoreManager scoreManager)
+        public void Construct(IScoreManager scoreManager, IInteractionService interactionService)
         {
             _scoreManager = scoreManager;
+            _interactionService = interactionService;
 
-            // Subscribe to score changes
+            // Subscribe
             _scoreManager.OnScoreChanged += UpdateScoreDisplay;
+            _interactionService.OnItemPickedUp += ShowThrowButton;
+            _interactionService.OnItemThrown += HideThrowButton;
+            // Setup throw button
+            if (_throwButton != null)
+            {
+                _throwButton.onClick.AddListener(() => _interactionService.ThrowItem());
+                _throwButton.gameObject.SetActive(false);
+            }
+            
+
         }
 
+        private void ShowThrowButton()
+        {
+            _throwButton.gameObject.SetActive(true);
+        }
+        private void HideThrowButton()
+        {
+            _throwButton.gameObject.SetActive(false);
+        }
         private void Start()
         {
             // Initialize score display
@@ -45,6 +65,11 @@ namespace Game.UI
             if (_scoreManager != null)
             {
                 _scoreManager.OnScoreChanged -= UpdateScoreDisplay;
+            }
+            if (_interactionService != null)
+            {
+                _interactionService.OnItemPickedUp -= ShowThrowButton;
+                _interactionService.OnItemThrown -= HideThrowButton;
             }
         }
 
