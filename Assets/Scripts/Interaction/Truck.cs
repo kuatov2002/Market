@@ -1,32 +1,34 @@
+using Game.Scoring;
 using UnityEngine;
 using Zenject;
-using Game.Scoring;
 
 namespace Game.Interaction
 {
+    /// <summary>
+    /// Component that handles item delivery to the truck
+    /// </summary>
     public class Truck : MonoBehaviour
     {
-        [SerializeField] private string acceptableTag = "Pickup";
-        
-        // Reference to the score manager
-        private ScoreManager _scoreManager;
-        
+        [SerializeField] private string _acceptableTag = "Pickup";
+
+        private IScoreManager _scoreManager;
+
         [Inject]
-        public void Construct(ScoreManager scoreManager)
+        public void Construct(IScoreManager scoreManager)
         {
             _scoreManager = scoreManager;
         }
-        
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag(acceptableTag))
+            if (other.CompareTag(_acceptableTag))
             {
                 Debug.Log($"Truck received item: {other.gameObject.name}");
-                
+
                 // Add points to the score
                 _scoreManager.AddPoint();
-                
-                // Destroy the game object (not just the collider)
+
+                // Destroy the game object
                 Destroy(other.gameObject);
             }
         }
